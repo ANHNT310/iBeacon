@@ -52,6 +52,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AdminService\" />
+    <Folder Include="ApiService\" />
     <Folder Include="DAL\" />
     <Folder Include="Database\" />
   </ItemGroup>
