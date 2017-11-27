@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BeaconModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BEACON_DEVICES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BEACON_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BEACON_NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="BEACON_UUID" Type="nvarchar" MaxLength="50" />
+          <Property Name="BEACON_MAJOR" Type="int" />
+          <Property Name="BEACON_MINOR" Type="int" Nullable="false" />
+          <Property Name="STORE_ID" Type="int" />
+          <Property Name="IS_BROADCASTING" Type="bit" />
+          <Property Name="SUBTITLE" Type="nvarchar" MaxLength="50" />
+          <Property Name="SELLING_GLASS" Type="int" Nullable="false" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="STATUS" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ITEMS_ADVERTISEMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GUID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="URL_IMAGE" Type="nvarchar" MaxLength="255" />
+          <Property Name="DEVICE_ID" Type="int" />
+          <Property Name="START_DATE" Type="date" />
+          <Property Name="END_DATE" Type="date" />
+          <Property Name="IS_ACTIVE" Type="bit" />
+          <Property Name="NUMBER_LIKE" Type="int" />
+          <Property Name="NUMBER_1_STAR" Type="int" />
+          <Property Name="NUMBER_2_STAR" Type="int" />
+          <Property Name="NUMBER_3_STAR" Type="int" />
+          <Property Name="NUMBER_4_STAR" Type="int" />
+          <Property Name="NUMBER_5_STAR" Type="int" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="50" />
+          <Property Name="PRICE" Type="int" />
+        </EntityType>
+        <EntityType Name="MALL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MALL_GUID" Type="nvarchar" MaxLength="50" />
+          <Property Name="MALL_NAME" Type="nvarchar" MaxLength="150" />
+          <Property Name="LOCATION_CODE" Type="nvarchar" MaxLength="150" />
+          <Property Name="BEACON_ID" Type="int" />
+          <Property Name="LAT" Type="int" />
+          <Property Name="LONG" Type="int" />
+          <Property Name="RADIUS" Type="nchar" MaxLength="10" />
+          <Property Name="BROADCAST_ENABLE" Type="bit" />
+        </EntityType>
+        <EntityType Name="STORE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GUID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="STORE_NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="MALL_ID" Type="int" />
+          <Property Name="BROADCAST_ENABLE" Type="bit" />
+          <Property Name="HOME_PAGE" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="BeaconModelStoreContainer">
+          <EntitySet Name="BEACON_DEVICES" EntityType="Self.BEACON_DEVICES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ITEMS_ADVERTISEMENT" EntityType="Self.ITEMS_ADVERTISEMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MALL" EntityType="Self.MALL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORE" EntityType="Self.STORE" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BeaconModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BEACON_DEVICES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BEACON_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BEACON_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BEACON_UUID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BEACON_MAJOR" Type="Int32" />
+          <Property Name="BEACON_MINOR" Type="Int32" Nullable="false" />
+          <Property Name="STORE_ID" Type="Int32" />
+          <Property Name="IS_BROADCASTING" Type="Boolean" />
+          <Property Name="SUBTITLE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SELLING_GLASS" Type="Int32" Nullable="false" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ITEMS_ADVERTISEMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GUID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="URL_IMAGE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DEVICE_ID" Type="Int32" />
+          <Property Name="START_DATE" Type="DateTime" Precision="0" />
+          <Property Name="END_DATE" Type="DateTime" Precision="0" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
+          <Property Name="NUMBER_LIKE" Type="Int32" />
+          <Property Name="NUMBER_1_STAR" Type="Int32" />
+          <Property Name="NUMBER_2_STAR" Type="Int32" />
+          <Property Name="NUMBER_3_STAR" Type="Int32" />
+          <Property Name="NUMBER_4_STAR" Type="Int32" />
+          <Property Name="NUMBER_5_STAR" Type="Int32" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PRICE" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MALL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MALL_GUID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MALL_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LOCATION_CODE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="BEACON_ID" Type="Int32" />
+          <Property Name="LAT" Type="Int32" />
+          <Property Name="LONG" Type="Int32" />
+          <Property Name="RADIUS" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="BROADCAST_ENABLE" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="STORE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GUID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="STORE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MALL_ID" Type="Int32" />
+          <Property Name="BROADCAST_ENABLE" Type="Boolean" />
+          <Property Name="HOME_PAGE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="BeaconEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BEACON_DEVICES" EntityType="Self.BEACON_DEVICES" />
+          <EntitySet Name="ITEMS_ADVERTISEMENT" EntityType="Self.ITEMS_ADVERTISEMENT" />
+          <EntitySet Name="MALLs" EntityType="Self.MALL" />
+          <EntitySet Name="STOREs" EntityType="Self.STORE" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BeaconModelStoreContainer" CdmEntityContainer="BeaconEntities">
+          <EntitySetMapping Name="BEACON_DEVICES">
+            <EntityTypeMapping TypeName="BeaconModel.BEACON_DEVICES">
+              <MappingFragment StoreEntitySet="BEACON_DEVICES">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BEACON_ID" ColumnName="BEACON_ID" />
+                <ScalarProperty Name="BEACON_NAME" ColumnName="BEACON_NAME" />
+                <ScalarProperty Name="BEACON_UUID" ColumnName="BEACON_UUID" />
+                <ScalarProperty Name="BEACON_MAJOR" ColumnName="BEACON_MAJOR" />
+                <ScalarProperty Name="BEACON_MINOR" ColumnName="BEACON_MINOR" />
+                <ScalarProperty Name="STORE_ID" ColumnName="STORE_ID" />
+                <ScalarProperty Name="IS_BROADCASTING" ColumnName="IS_BROADCASTING" />
+                <ScalarProperty Name="SUBTITLE" ColumnName="SUBTITLE" />
+                <ScalarProperty Name="SELLING_GLASS" ColumnName="SELLING_GLASS" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ITEMS_ADVERTISEMENT">
+            <EntityTypeMapping TypeName="BeaconModel.ITEMS_ADVERTISEMENT">
+              <MappingFragment StoreEntitySet="ITEMS_ADVERTISEMENT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="URL_IMAGE" ColumnName="URL_IMAGE" />
+                <ScalarProperty Name="DEVICE_ID" ColumnName="DEVICE_ID" />
+                <ScalarProperty Name="START_DATE" ColumnName="START_DATE" />
+                <ScalarProperty Name="END_DATE" ColumnName="END_DATE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+                <ScalarProperty Name="NUMBER_LIKE" ColumnName="NUMBER_LIKE" />
+                <ScalarProperty Name="NUMBER_1_STAR" ColumnName="NUMBER_1_STAR" />
+                <ScalarProperty Name="NUMBER_2_STAR" ColumnName="NUMBER_2_STAR" />
+                <ScalarProperty Name="NUMBER_3_STAR" ColumnName="NUMBER_3_STAR" />
+                <ScalarProperty Name="NUMBER_4_STAR" ColumnName="NUMBER_4_STAR" />
+                <ScalarProperty Name="NUMBER_5_STAR" ColumnName="NUMBER_5_STAR" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MALLs">
+            <EntityTypeMapping TypeName="BeaconModel.MALL">
+              <MappingFragment StoreEntitySet="MALL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MALL_GUID" ColumnName="MALL_GUID" />
+                <ScalarProperty Name="MALL_NAME" ColumnName="MALL_NAME" />
+                <ScalarProperty Name="LOCATION_CODE" ColumnName="LOCATION_CODE" />
+                <ScalarProperty Name="BEACON_ID" ColumnName="BEACON_ID" />
+                <ScalarProperty Name="LAT" ColumnName="LAT" />
+                <ScalarProperty Name="LONG" ColumnName="LONG" />
+                <ScalarProperty Name="RADIUS" ColumnName="RADIUS" />
+                <ScalarProperty Name="BROADCAST_ENABLE" ColumnName="BROADCAST_ENABLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOREs">
+            <EntityTypeMapping TypeName="BeaconModel.STORE">
+              <MappingFragment StoreEntitySet="STORE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="STORE_NAME" ColumnName="STORE_NAME" />
+                <ScalarProperty Name="MALL_ID" ColumnName="MALL_ID" />
+                <ScalarProperty Name="BROADCAST_ENABLE" ColumnName="BROADCAST_ENABLE" />
+                <ScalarProperty Name="HOME_PAGE" ColumnName="HOME_PAGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
