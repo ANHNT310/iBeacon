@@ -7,6 +7,8 @@
       <Diagram DiagramId="cb1fab6ad03f446285aff76fcabe771f" Name="Diagram1">
         <EntityTypeShape EntityType="BeaconModel.MALL" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BeaconModel.STORE" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeaconModel.BEACON_DEVICES" Width="1.5" PointX="3.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BeaconModel.ITEMS_ADVERTISEMENT" Width="1.5" PointX="0.75" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
