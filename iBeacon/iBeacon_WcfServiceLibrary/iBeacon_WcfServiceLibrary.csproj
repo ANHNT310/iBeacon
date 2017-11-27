@@ -52,11 +52,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\iBeacon_Model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>iBeacon_Model.Context.tt</DependentUpon>
-    </Compile>
     <Compile Include="Database\iBeacon_Model.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -94,11 +89,6 @@
     <Folder Include="DAL\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database\iBeacon_Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>iBeacon_Model.Context.cs</LastGenOutput>
-      <DependentUpon>iBeacon_Model.edmx</DependentUpon>
-    </Content>
     <Content Include="Database\iBeacon_Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>iBeacon_Model.edmx</DependentUpon>
